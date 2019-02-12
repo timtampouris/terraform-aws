@@ -86,8 +86,9 @@ resource "aws_security_group" "default" {
 }
 
 /* Users */
-module "bs-iam-users" {
-  source = "../../../modules/awsusers"
+# Create a module to deploy standard IAM users
+module "iam-users" {
+  source = "/modules/awsusers"
 
   root_users = ["user1", "user2"]
 }
